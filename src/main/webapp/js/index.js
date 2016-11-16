@@ -81,26 +81,31 @@ $(function() {
 	
 	//Edit Farms
 	
-	$farms.delegate('#editFarm','click',function(){
-		$('#name1').addClass('hide');
-		$('#name2').removeClass('hide');
-		$('#name2').val($('#name1').html());
-		$('#td1').addClass('hide');
-		$('#td2').removeClass('hide');
+	$farms.delegate('.editFarm','click',function(){
+		var $tr = $(this).closest('tr');
+		$tr.find('td.td1').addClass('hide');
+		$tr.find('td.td2').removeClass('hide');
+		$tr.find('input.name').removeClass('hide');
+		$tr.find('input.name').val($tr.find('span.name').html());
+		$tr.find('span.name').addClass('hide');
+		
 	});
 	
-	$farms.delegate('#cancelEdit','click',function(){
-		$('#name2').addClass('hide');
-		$('#name1').removeClass('hide');
-		$('#td2').addClass('hide');
-		$('#td1').removeClass('hide');
+	$farms.delegate('.cancelEdit','click',function(){
+		var $tr = $(this).closest('tr');
+		$tr.find('td.td1').removeClass('hide');
+		$tr.find('td.td2').addClass('hide');
+		$tr.find('input.name').addClass('hide');
+		$tr.find('span.name').removeClass('hide');
 	});
 	
 	$farms.delegate('.saveFarm','click',function(){
 		
+		var $tr = $(this).closest('tr');
+		
 		var farm = {
 				id: $(this).attr('id'),
-				nameF: $('#name2').val()
+				nameF: $tr.find('input.name').val()
 		};
 		
 		$.ajax({
@@ -109,7 +114,11 @@ $(function() {
 			headers: {'Content-Type': 'application/json'},
 			data: JSON.stringify(farm),
 			success: function(farm){
-				$('#name1').html(farm.nameF);
+				$tr.find('span.name').html(farm.nameF);
+				$tr.find('td.td1').removeClass('hide');
+				$tr.find('td.td2').addClass('hide');
+				$tr.find('input.name').addClass('hide');
+				$tr.find('span.name').removeClass('hide');
 			},
 			error: function(){
 				alert('Error');

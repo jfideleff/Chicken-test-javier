@@ -10,7 +10,14 @@
 </head>
 <body>
 <div id="asd">
-		<h2>Farms</h2>
+<h2>Farms</h2>
+<button id="showAdd">Add Farm</button>
+		<div id="showForm" class="hide">
+			<span>Name: </span><input id="nameF">
+			<button id="addFarm">Add</button>
+			<button id="cancel">Cancel</button>
+		</div>
+		<br><br>
 		<table id="farms" border="1">
 			<tr>
 				<td>Name</td>
@@ -20,13 +27,7 @@
 				<td>Edit</td>
 			</tr>
 		</table>
-		<br>
-		<button id="showAdd">Add Farm</button>
-		<div id="showForm" class="hide">
-			<span>Name: </span><input id="nameF">
-			<button id="addFarm">Add</button>
-			<button id="cancel">Cancel</button>
-		</div>
+		
 	</div>
 	
 <!----------------------Templates-------------------------------------------------------->
@@ -34,8 +35,8 @@
 <template id="farm-template">
 <tr>
 <td>
-<span id="name1">{{nameF}}</span>
-<input id="name2" class="hide">
+<span class="name">{{nameF}}</span>
+<input class="name hide">
 </td>
 <td>
 {{chickenList.length}}
@@ -46,12 +47,12 @@
 <td>
 <button class="deleteFarm" id='{{id}}'>X</button>
 </td>
-<td id="td1">
-<button id="editFarm">Edit</button>
+<td class="td1">
+<button class="editFarm">Edit</button>
 </td>
-<td id="td2" class="hide">
+<td class="td2 hide">
 <button class="saveFarm" id='{{id}}'>Save</button>
-<button id="cancelEdit">Cancel</button>
+<button class="cancelEdit">Cancel</button>
 </td>
 </tr>
 </template>
