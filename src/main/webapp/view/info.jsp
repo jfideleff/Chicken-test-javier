@@ -13,7 +13,7 @@
 		<h2>Chickens</h2>
 		<button id="addChicken">Add Chicken</button>
 		<br><br>
-		<table id="chickens" border="1">
+		<table id="chickens" border="1" farmid="${farm.id}">
 			<tr>
 				<td>Chicken Id</td>
 				<td># of Eggs</td>
