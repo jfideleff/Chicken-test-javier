@@ -1,10 +1,9 @@
 $(function(){
 	
-	var url = window.location.href.toString();
-	var parts = url.split("/");
-	var farmId = parts[parts.length-1]; 
-	
 	var $chickens = $('#chickens');
+	
+	var farmId2 = $('#chickens').attr('farmid');
+	
 	var $nameC = $('#nameC');
 	
 	var chickenTemplate = $('#chicken-template').html();
@@ -17,7 +16,7 @@ $(function(){
 	
 	$.ajax({
 		type: 'GET',
-		url:'/ChickenTest/view/getFarm/'+ farmId,
+		url:'/ChickenTest/view/getFarm/'+ farmId2,
 		success: function(chickens){
 			$.each(chickens,function(i,chicken){
 				listChicken(chicken);
@@ -35,7 +34,7 @@ $(function(){
 		
 		$.ajax({
 			type: 'POST',
-			url: '/ChickenTest/view/addChicken/'+ farmId,
+			url: '/ChickenTest/view/addChicken/'+ farmId2,
 			data: chicken,
 			success: function(newChicken){
 				listChicken(newChicken);
