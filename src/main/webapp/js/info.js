@@ -2,7 +2,7 @@ $(function(){
 	
 	var $chickens = $('#chickens');
 	
-	var farmId2 = $('#chickens').attr('farmid');
+	var farmId = $('#chickens').attr('farmid');
 	
 	var $nameC = $('#nameC');
 	
@@ -16,7 +16,7 @@ $(function(){
 	
 	$.ajax({
 		type: 'GET',
-		url:'/ChickenTest/view/getFarm/'+ farmId2,
+		url:'/ChickenTest/view/getFarm/'+ farmId,
 		success: function(chickens){
 			$.each(chickens,function(i,chicken){
 				listChicken(chicken);
@@ -34,7 +34,7 @@ $(function(){
 		
 		$.ajax({
 			type: 'POST',
-			url: '/ChickenTest/view/addChicken/'+ farmId2,
+			url: '/ChickenTest/view/addChicken/'+ farmId,
 			data: chicken,
 			success: function(newChicken){
 				listChicken(newChicken);
@@ -62,5 +62,32 @@ $(function(){
 				alert('Error');
 			}
 		});
+	});
+	
+	//PUT
+	
+	$chickens.delegate('.addEgg','click',function(){
+		
+		var $tr = $(this).closest('tr');
+		
+		var chicken = {
+				id: $tr.find('td.chickId').val(),
+				eggs: $tr.find('td.chickEggs').val(),
+				farm: farmId
+		};
+		
+		$.ajax({
+			type:'PUT',
+			url:'/ChickenTest/view/addEgg/',
+			headers: {'Content-Type': 'application/json'},
+			data: JSON.stringify(chicken),
+			success: function(chicken){
+				$tr.find('td.chickEggs').html(chicken.eggs);
+			},
+			error: function(){
+				alert('Error');
+			}
+		});
+		
 	});
 });

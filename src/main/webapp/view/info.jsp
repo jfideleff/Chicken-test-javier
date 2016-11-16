@@ -17,7 +17,7 @@
 			<tr>
 				<td>Chicken Id</td>
 				<td># of Eggs</td>
-				<td>Show Eggs</td>
+				<td>Add Egg</td>
 				<td>Delete</td>
 			</tr>
 		</table>
@@ -28,11 +28,9 @@
 	
 	<template id="chicken-template">
 	<tr class="canBeRemove">
-	<td>{{id}}</td>
-	<td>{{eggsList.length}}</td>
-	<td>
-	<a href="<%=request.getContextPath()%>/eggs/{{id}}"><button>Show</button></a>
-	</td>
+	<td class="chickId">{{id}}</td>
+	<td class="chickEggs">{{eggs}}</td>
+	<td><button class="addEgg">+1</button></td>
 	<td><button class="delete" id='{{id}}'>X</button></td>
 	</tr>
 	</template>

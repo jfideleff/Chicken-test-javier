@@ -21,20 +21,18 @@ public class Chicken {
 	@Column(name="id")
 	private long id;
 	
+	@Column(name="eggs")
+	private long eggs;
+	
 	@ManyToOne
 	@JoinColumn(name="farmId")
 	@JsonBackReference
 	private Farm farm;
 	
-	@OneToMany(mappedBy="chicken",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@Fetch(FetchMode.SUBSELECT)
-	@JsonManagedReference
-	private List<Egg> eggsList = new ArrayList<Egg>();
-	
-	public int countEggs(){
-		int m = 0;
-		m= eggsList.size();
-		return m;
+	public static void addEgg(Chicken chic){
+		long i = chic.getEggs();
+		i++;
+		chic.setEggs(i);
 	}
 
 	public long getId() {
@@ -53,12 +51,12 @@ public class Chicken {
 		this.farm = farm;
 	}
 
-	public List<Egg> getEggsList() {
-		return eggsList;
+	public long getEggs() {
+		return eggs;
 	}
 
-	public void setEggsList(List<Egg> eggsList) {
-		this.eggsList = eggsList;
+	public void setEggs(long eggs) {
+		this.eggs = eggs;
 	}
 
 	public Chicken() {

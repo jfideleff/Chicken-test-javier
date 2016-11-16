@@ -39,7 +39,6 @@
 				<!-- Aca pondremos las clases que mapeemos -->
 				<value>com.accenture.model.Farm</value>
 				<value>com.accenture.model.Chicken</value>
-				<value>com.accenture.model.Egg</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -75,6 +74,5 @@
 	<!-- DAOs --> 
 	<bean id="FarmDao" class="com.accenture.dao.FarmDao" />
 	<bean id="ChickenDao" class="com.accenture.dao.ChickenDao" />
-	<bean id="EggDao" class="com.accenture.dao.EggDao" />
 	
 </beans>  
