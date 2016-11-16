@@ -18,7 +18,7 @@
 				<td>Chicken Id</td>
 				<td># of Eggs</td>
 				<td>Show Eggs</td>
-				<td>Delete</td>
+				<td>Hola Mundo</td>
 			</tr>
 		</table>
 		<br>
