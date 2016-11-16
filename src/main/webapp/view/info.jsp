@@ -31,7 +31,7 @@
 	<td>{{id}}</td>
 	<td>{{eggsList.length}}</td>
 	<td>
-	<a href="<%=request.getContextPath()%>/eggs/{{id}}"><button>--></button></a>
+	<a href="<%=request.getContextPath()%>/eggs/{{id}}"><button>Show</button></a>
 	</td>
 	<td><button class="delete" id='{{id}}'>X</button></td>
 	</tr>
