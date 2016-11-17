@@ -55,6 +55,12 @@ public class Chicken {
 
 	public Chicken() {
 	}
+
+	public Chicken(long id, long eggs, Farm farm) {
+		this.id = id;
+		this.eggs = eggs;
+		this.farm = farm;
+	}
 	
 	
 
