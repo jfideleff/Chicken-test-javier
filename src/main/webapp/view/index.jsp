@@ -18,13 +18,10 @@
 			<button id="cancel">Cancel</button>
 		</div>
 		<br><br>
-		<table id="farms" border="1">
+		<table id="farms">
 			<tr>
-				<td>Name</td>
-				<td># of Chickens</td>
-				<td>Info</td>
-				<td>Delete</td>
-				<td>Edit</td>
+				<th>Name</th>
+				<th># of Chickens</th>
 			</tr>
 		</table>
 		
@@ -42,10 +39,10 @@
 {{chickenList.length}}
 </td>
 <td>
-<a href="<%=request.getContextPath()%>/info/{{id}}"><button>--></button></a>
+<a href="<%=request.getContextPath()%>/info/{{id}}"><button>Info</button></a>
 </td>
 <td>
-<button class="deleteFarm" id='{{id}}'>X</button>
+<button class="deleteFarm" id='{{id}}'>Delete</button>
 </td>
 <td class="td1">
 <button class="editFarm">Edit</button>

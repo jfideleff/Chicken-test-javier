@@ -13,7 +13,7 @@
 		<h2>Chickens</h2>
 		<button id="addChicken">Add Chicken</button>
 		<br><br>
-		<table id="chickens" border="1" farmid="${farm.id}">
+		<table id="chickens" farmid="${farm.id}">
 			<tr>
 				<td>Chicken Id</td>
 				<td># of Eggs</td>
@@ -28,10 +28,10 @@
 	
 	<template id="chicken-template">
 	<tr class="canBeRemove">
-	<td>{{id}}</td>
-	<td class="chickEggs">{{eggs}}</td>
-	<td><button class="addEgg" data-id='{{id}}' data-eggs='{{eggs}}'>+1</button></td>
-	<td><button class="delete" id='{{id}}'>X</button></td>
+	<td align="center">{{id}}</td>
+	<td align="center" class="chickEggs">{{eggs}}</td>
+	<td align="center"><button class="addEgg" data-id='{{id}}' data-eggs='{{eggs}}'>Add</button></td>
+	<td align="center"><button class="delete" id='{{id}}'>Delete</button></td>
 	</tr>
 	</template>
 <!----------------------Jquery & AJAX-------------------------------------------------------->
