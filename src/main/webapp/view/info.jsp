@@ -3,22 +3,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/js/Style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-<div>
+<div class="container">
 		<h2>Chickens</h2>
-		<button id="addChicken">Add Chicken</button>
+		<button id="addChicken" class="btn btn-default">Add Chicken</button>
 		<br><br>
-		<table id="chickens" farmid="${farm.id}">
+		<table id="chickens" class="table" farmid="${farm.id}">
 			<tr>
-				<td>Chicken Id</td>
-				<td># of Eggs</td>
-				<td>Add Egg</td>
-				<td>Delete</td>
+				<th>Chicken Id</th>
+				<th># of Eggs</th>
+				<th>Add Egg</th>
+				<th>Delete</th>
 			</tr>
 		</table>
 		<br>
@@ -28,10 +29,10 @@
 	
 	<template id="chicken-template">
 	<tr class="canBeRemove">
-	<td align="center">{{id}}</td>
-	<td align="center" class="chickEggs">{{eggs}}</td>
-	<td align="center"><button class="addEgg" data-id='{{id}}' data-eggs='{{eggs}}'>Add</button></td>
-	<td align="center"><button class="delete" id='{{id}}'>Delete</button></td>
+	<td>{{id}}</td>
+	<td class="chickEggs">{{eggs}}</td>
+	<td><button class="addEgg btn btn-default" data-id='{{id}}' data-eggs='{{eggs}}'>Add</button></td>
+	<td><button class="delete btn btn-default" id='{{id}}'>Delete</button></td>
 	</tr>
 	</template>
 <!----------------------Jquery & AJAX-------------------------------------------------------->

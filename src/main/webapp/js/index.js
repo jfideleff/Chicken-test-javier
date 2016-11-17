@@ -41,6 +41,7 @@ $(function() {
 	//Add Farms
 	
 	$('#addFarm').on('click',function(){
+		
 		var farm = {
 				nameF : $nameF.val()
 		}
