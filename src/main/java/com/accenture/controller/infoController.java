@@ -52,5 +52,13 @@ public class infoController {
 		chickenDao.updateFarm(chicken);
 		return chicken;
 	}
+	
+	@RequestMapping(path="/view/editEgg/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
+	public Chicken editEgg(@PathVariable("id") String id,@RequestBody Chicken chicken){
+		Farm farm = farmDao.getFarm(Long.parseLong(id));
+		chicken.setFarm(farm);
+		chickenDao.updateFarm(chicken);
+		return chicken;
+	}
 
 }

@@ -19,7 +19,7 @@
 			<button id="cancel" class="btn btn-default">Cancel</button>
 		</div>
 		<br><br>
-		<table id="farms" class="table">
+		<table id="farms" class="table table-striped">
 			<tr>
 				<th>Name</th>
 				<th># of Chickens</th>
@@ -43,7 +43,7 @@
 {{chickenList.length}}
 </td>
 <td>
-<a href="<%=request.getContextPath()%>/info/{{id}}"><button class="btn btn-default">Info</button></a>
+<a href="<%=request.getContextPath()%>/info/{{id}}"><button class="info btn btn-default">Info</button></a>
 </td>
 <td>
 <button class="deleteFarm btn btn-default" id='{{id}}'>Delete</button>

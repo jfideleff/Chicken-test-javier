@@ -30,11 +30,17 @@ $(function() {
 		$('#nameF').val('');
 		$('#showAdd').addClass('hide');
 		$('#showForm').removeClass('hide');
+		$('button.deleteFarm').attr('disabled','disabled');
+		$('button.info').attr('disabled','disabled');
+		$('.editFarm').attr('disabled','disabled');
 	});
 	
 	$('#cancel').on('click',function(){
 		$('#showAdd').removeClass('hide');
 		$('#showForm').addClass('hide');
+		$('button.deleteFarm').removeAttr('disabled','disabled');
+		$('button.info').removeAttr('disabled','disabled');
+		$('.editFarm').removeAttr('disabled','disabled');
 		
 	});
 
@@ -59,6 +65,9 @@ $(function() {
 		});
 		$('#showAdd').removeClass('hide');
 		$('#showForm').addClass('hide');
+		$('button.deleteFarm').removeAttr('disabled','disabled');
+		$('button.info').removeAttr('disabled','disabled');
+		$('.editFarm').removeAttr('disabled','disabled');
 		
 	});
 	
@@ -89,6 +98,10 @@ $(function() {
 		$tr.find('input.name').removeClass('hide');
 		$tr.find('input.name').val($tr.find('span.name').html());
 		$tr.find('span.name').addClass('hide');
+		$('button.deleteFarm').attr('disabled','disabled');
+		$('#showAdd').attr('disabled','disabled');
+		$('button.info').attr('disabled','disabled');
+		$('.editFarm').attr('disabled','disabled');
 		
 	});
 	
@@ -98,6 +111,10 @@ $(function() {
 		$tr.find('td.td2').addClass('hide');
 		$tr.find('input.name').addClass('hide');
 		$tr.find('span.name').removeClass('hide');
+		$('button.deleteFarm').removeAttr('disabled','disabled');
+		$('#showAdd').removeAttr('disabled','disabled');
+		$('button.info').removeAttr('disabled','disabled');
+		$('.editFarm').removeAttr('disabled','disabled');
 	});
 	
 	$farms.delegate('.saveFarm','click',function(){
@@ -120,6 +137,10 @@ $(function() {
 				$tr.find('td.td2').addClass('hide');
 				$tr.find('input.name').addClass('hide');
 				$tr.find('span.name').removeClass('hide');
+				$('button.deleteFarm').removeAttr('disabled','disabled');
+				$('#showAdd').removeAttr('disabled','disabled');
+				$('button.info').removeAttr('disabled','disabled');
+				$('.editFarm').removeAttr('disabled','disabled');
 			},
 			error: function(){
 				alert('Error');
