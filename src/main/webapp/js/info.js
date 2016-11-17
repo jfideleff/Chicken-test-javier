@@ -71,18 +71,18 @@ $(function(){
 		var $tr = $(this).closest('tr');
 		
 		var chicken = {
-				id: $tr.find('td.chickId').val(),
-				eggs: $tr.find('td.chickEggs').val(),
-				farm: farmId
+				id: $(this).attr('data-id'),
+				eggs: $tr.find('td.chickEggs').html()
 		};
 		
 		$.ajax({
 			type:'PUT',
-			url:'/ChickenTest/view/addEgg/',
+			url:'/ChickenTest/view/addEgg/' + farmId,
 			headers: {'Content-Type': 'application/json'},
 			data: JSON.stringify(chicken),
 			success: function(chicken){
 				$tr.find('td.chickEggs').html(chicken.eggs);
+				$(this).find('data-eggs').html(chicken.eggs);
 			},
 			error: function(){
 				alert('Error');

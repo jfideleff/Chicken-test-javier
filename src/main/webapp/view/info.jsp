@@ -28,9 +28,9 @@
 	
 	<template id="chicken-template">
 	<tr class="canBeRemove">
-	<td class="chickId">{{id}}</td>
+	<td>{{id}}</td>
 	<td class="chickEggs">{{eggs}}</td>
-	<td><button class="addEgg">+1</button></td>
+	<td><button class="addEgg" data-id='{{id}}' data-eggs='{{eggs}}'>+1</button></td>
 	<td><button class="delete" id='{{id}}'>X</button></td>
 	</tr>
 	</template>

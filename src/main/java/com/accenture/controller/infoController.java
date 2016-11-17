@@ -44,9 +44,11 @@ public class infoController {
 		chickenDao.deleteFarm(chicken);
 	}
 	
-	@RequestMapping(path="/view/addEgg/", method=RequestMethod.PUT, headers = "Accept=application/json")
-	public Chicken addEgg(@RequestBody Chicken chicken){
+	@RequestMapping(path="/view/addEgg/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
+	public Chicken addEgg(@PathVariable("id") String id,@RequestBody Chicken chicken){
+		Farm farm = farmDao.getFarm(Long.parseLong(id));
 		Chicken.addEgg(chicken);
+		chicken.setFarm(farm);
 		chickenDao.updateFarm(chicken);
 		return chicken;
 	}
