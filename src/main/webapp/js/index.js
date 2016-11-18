@@ -26,7 +26,7 @@ $(function() {
 	
 	$.ajax({
 		type : 'GET',
-		url : '/ChickenTest/view/farmList',
+		url : '/ChickenTest/farmList',
 		success : function(farms) {
 			if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
 			{
@@ -52,7 +52,7 @@ $(function() {
 		$('#showAdd').addClass('hide');
 		$('#showForm').removeClass('hide');
 		$('button.deleteFarm').attr('disabled','disabled');
-		$('button.info').attr('disabled','disabled');
+		$('a.info').attr('disabled','disabled');
 		$('.editFarm').attr('disabled','disabled');
 	});
 	
@@ -60,7 +60,7 @@ $(function() {
 		$('#showAdd').removeClass('hide');
 		$('#showForm').addClass('hide');
 		$('button.deleteFarm').removeAttr('disabled','disabled');
-		$('button.info').removeAttr('disabled','disabled');
+		$('a.info').removeAttr('disabled','disabled');
 		$('.editFarm').removeAttr('disabled','disabled');
 		
 	});
@@ -87,7 +87,7 @@ $(function() {
 		
 		$.ajax({
 			type:'POST',
-			url:'/ChickenTest/view/addFarm',
+			url:'/ChickenTest/addFarm',
 			data: farm,
 			success : function(newfarm) {
 				if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
@@ -105,7 +105,7 @@ $(function() {
 		$('#showAdd').removeClass('hide');
 		$('#showForm').addClass('hide');
 		$('button.deleteFarm').removeAttr('disabled','disabled');
-		$('button.info').removeAttr('disabled','disabled');
+		$('a.info').removeAttr('disabled','disabled');
 		$('.editFarm').removeAttr('disabled','disabled');
 		
 	});
@@ -118,7 +118,7 @@ $(function() {
 		
 		$.ajax({
 			type:'DELETE',
-			url:'/ChickenTest/view/deleteFarm/'+ $(this).attr('id'),
+			url:'/ChickenTest/deleteFarm/'+ $(this).attr('id'),
 			success: function(){
 				$tr.remove();
 			},
@@ -139,7 +139,7 @@ $(function() {
 		$tr.find('span.name').addClass('hide');
 		$('button.deleteFarm').attr('disabled','disabled');
 		$('#showAdd').attr('disabled','disabled');
-		$('button.info').attr('disabled','disabled');
+		$('a.info').attr('disabled','disabled');
 		$('.editFarm').attr('disabled','disabled');
 		
 	});
@@ -152,7 +152,7 @@ $(function() {
 		$tr.find('span.name').removeClass('hide');
 		$('button.deleteFarm').removeAttr('disabled','disabled');
 		$('#showAdd').removeAttr('disabled','disabled');
-		$('button.info').removeAttr('disabled','disabled');
+		$('a.info').removeAttr('disabled','disabled');
 		$('.editFarm').removeAttr('disabled','disabled');
 	});
 	
@@ -167,7 +167,7 @@ $(function() {
 		
 		$.ajax({
 			type:'PUT',
-			url:'/ChickenTest/view/editFarm/'+ $(this).attr('id'),
+			url:'/ChickenTest/editFarm/'+ $(this).attr('id'),
 			headers: {'Content-Type': 'application/json'},
 			data: JSON.stringify(farm),
 			success: function(farm){
@@ -178,7 +178,7 @@ $(function() {
 				$tr.find('span.name').removeClass('hide');
 				$('button.deleteFarm').removeAttr('disabled','disabled');
 				$('#showAdd').removeAttr('disabled','disabled');
-				$('button.info').removeAttr('disabled','disabled');
+				$('a.info').removeAttr('disabled','disabled');
 				$('.editFarm').removeAttr('disabled','disabled');
 			},
 			error: function(){

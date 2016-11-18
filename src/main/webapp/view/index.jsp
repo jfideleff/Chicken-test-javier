@@ -1,31 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/js/Style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title><spring:message code="test.farmTittle"></spring:message></title>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/?lenguage=en">Eng</a> | <a href="<%=request.getContextPath()%>/?lenguage=es">Spa</a>
 <div class="container">
-<h2>Farms</h2>
-<button id="showAdd" class="btn btn-default">Add Farm</button>
+<h2><spring:message code="test.farm"></spring:message></h2>
+<button id="showAdd" class="btn btn-default"><spring:message code="test.newFarm"></spring:message></button>
 		<div id="showForm" class="hide">
-		<label>Name: </label><input class="form-control" id="nameF">
-			<button id="addFarm" class="btn btn-default">Add</button>
-			<button id="cancel" class="btn btn-default">Cancel</button>
+		<label><spring:message code="test.farmName"></spring:message></label><input class="form-control" id="nameF">
+			<button id="addFarm" class="btn btn-default"><spring:message code="test.addFarm"></spring:message></button>
+			<button id="cancel" class="btn btn-default"><spring:message code="test.cancelFarm"></spring:message></button>
 		</div>
 		<br><br>
 		<table id="farms" class="table table-striped">
 			<tr>
-				<th>Name</th>
-				<th># of Chickens</th>
-				<th>Info</th>
-				<th>Delete</th>
-				<th>Edit</th>
+				<th><spring:message code="test.farmNameTable"></spring:message></th>
+				<th><spring:message code="test.farmChickenNumberTable"></spring:message></th>
+				<th><spring:message code="test.farmInfoTable"></spring:message></th>
+				<th><spring:message code ="test.farmDelete"></spring:message></th>
+				<th><spring:message code="test.farmEdit"></spring:message></th>
 			</tr>
 		</table>
 		
@@ -43,17 +45,17 @@
 {{chickenList.length}}
 </td>
 <td>
-<a class="info btn btn-default" href="<%=request.getContextPath()%>/info/{{id}}">Info</a>
+<a class="info btn btn-default" href="<%=request.getContextPath()%>/info/{{id}}"><spring:message code="test.farmInfo"></spring:message></a>
 </td>
 <td>
-<button class="deleteFarm btn btn-default" id='{{id}}'>Delete</button>
+<button class="deleteFarm btn btn-default" id='{{id}}'><spring:message code="test.farmDelete"></spring:message></button>
 </td>
 <td class="td1">
-<button class="editFarm btn btn-default">Edit</button>
+<button class="editFarm btn btn-default"><spring:message code="test.farmEdit"></spring:message></button>
 </td>
 <td class="td2 hide">
-<button class="saveFarm btn btn-default" id='{{id}}'>Save</button>
-<button class="cancelEdit btn btn-default">Cancel</button>
+<button class="saveFarm btn btn-default" id='{{id}}'><spring:message code="test.addFarm"></spring:message></button>
+<button class="cancelEdit btn btn-default"><spring:message code="test.cancelFarm"></spring:message></button>
 </td>
 </tr>
 </template>

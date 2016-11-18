@@ -31,7 +31,7 @@ $(function(){
 	
 	$.ajax({
 		type:'GET',
-		url:'/ChickenTest/view/getFarm/'+ farmId,
+		url:'/ChickenTest/getFarm/'+ farmId,
 		success: function (chickens){
 			if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
 				{
@@ -75,7 +75,7 @@ $(function(){
 		
 		$.ajax({
 			type:'POST',
-			url: '/ChickenTest/view/addChicken/'+ farmId,
+			url: '/ChickenTest/addChicken/'+ farmId,
 			data: chicken,
 			success:function(newChicken){
 				if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
@@ -101,7 +101,7 @@ $(function(){
 		
 		$.ajax({
 			type:'DELETE',
-			url:'/ChickenTest/view/deleteChicken/'+ $(this).attr("id"),
+			url:'/ChickenTest/deleteChicken/'+ $(this).attr("id"),
 			success:function(){
 				$tr.remove();
 			},
@@ -124,7 +124,7 @@ $(function(){
 		
 		$.ajax({
 			type:'PUT',
-			url:'/ChickenTest/view/addEgg/' + farmId,
+			url:'/ChickenTest/addEgg/' + farmId,
 			headers: {'Content-Type': 'application/json'},
 			data: JSON.stringify(chicken),
 			success: function(chicken){
@@ -174,7 +174,7 @@ $(function(){
 		
 		$.ajax({
 			type: 'PUT',
-			url:'/ChickenTest/view/editEgg/' + farmId,
+			url:'/ChickenTest/editEgg/' + farmId,
 			headers: {'Content-Type': 'application/json'},
 			data: JSON.stringify(chicken),
 			success: function(chicken){

@@ -23,25 +23,25 @@ public class FarmController {
 	@Autowired
 	FarmDao farmDao;
 	
-	@RequestMapping(path="/view/farmList", method=RequestMethod.GET)
+	@RequestMapping(path="/farmList", method=RequestMethod.GET)
 	public List<Farm> getFarm(){
 		List<Farm> list = farmDao.ListFarm();
 		return list;
 	}
 	
-	@RequestMapping(path="/view/addFarm", method=RequestMethod.POST)
+	@RequestMapping(path="/addFarm", method=RequestMethod.POST)
 	public Farm postFarm(Farm farm){
 		farmDao.addFarm(farm);
 		return farm;
 	}
 	
-	@RequestMapping(path="/view/deleteFarm/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(path="/deleteFarm/{id}", method=RequestMethod.DELETE)
 	public void deleteFarm(@PathVariable("id") String id){
 		Farm farm = farmDao.getFarm(Long.parseLong(id));
 		farmDao.deleteFarm(farm);
 	}
 	
-	@RequestMapping(path="/view/editFarm/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
+	@RequestMapping(path="/editFarm/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
 	public Farm putFarm(@RequestBody Farm farm){
 		farmDao.updateFarm(farm);
 		return farm;

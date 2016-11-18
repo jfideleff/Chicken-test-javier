@@ -23,14 +23,14 @@ public class infoController {
 	@Autowired
 	FarmDao farmDao;
 	
-	@RequestMapping(path="/view/getFarm/{id}",method=RequestMethod.GET)
+	@RequestMapping(path="/getFarm/{id}",method=RequestMethod.GET)
 	public List<Chicken> getChick(@PathVariable("id")String id){
 		Farm farm = farmDao.getFarm(Long.parseLong(id));
 		List<Chicken> list = farm.getChickenList();
 		return list;
 	}
 	
-	@RequestMapping(path="/view/addChicken/{id}", method=RequestMethod.POST)
+	@RequestMapping(path="/addChicken/{id}", method=RequestMethod.POST)
 	public Chicken postChicken(@PathVariable("id") String id,Chicken chicken){
 		Farm farm = farmDao.getFarm(Long.parseLong(id));
 		chicken.setFarm(farm);
@@ -38,13 +38,13 @@ public class infoController {
 		return chicken;
 	}
 	
-	@RequestMapping(path="/view/deleteChicken/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(path="/deleteChicken/{id}", method=RequestMethod.DELETE)
 	public void deleteChicken(@PathVariable("id") String id){
 		Chicken chicken= chickenDao.getChicken(Long.parseLong(id));
 		chickenDao.deleteFarm(chicken);
 	}
 	
-	@RequestMapping(path="/view/addEgg/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
+	@RequestMapping(path="/addEgg/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
 	public Chicken addEgg(@PathVariable("id") String id,@RequestBody Chicken chicken){
 		Farm farm = farmDao.getFarm(Long.parseLong(id));
 		Chicken.addEgg(chicken);
@@ -53,7 +53,7 @@ public class infoController {
 		return chicken;
 	}
 	
-	@RequestMapping(path="/view/editEgg/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
+	@RequestMapping(path="/editEgg/{id}", method=RequestMethod.PUT, headers = "Accept=application/json")
 	public Chicken editEgg(@PathVariable("id") String id,@RequestBody Chicken chicken){
 		Farm farm = farmDao.getFarm(Long.parseLong(id));
 		chicken.setFarm(farm);
