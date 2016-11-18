@@ -22,11 +22,11 @@ public class Chicken {
 	@JsonBackReference
 	private Farm farm;
 	
-	public static String addEgg(Chicken chic){
+	public static long addEgg(Chicken chic){
 		long i = chic.getEggs();
 		i++;
 		chic.setEggs(i);
-		return "A";
+		return chic.getEggs();
 	}
 
 	public long getId() {
