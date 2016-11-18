@@ -32,7 +32,7 @@
 	</div>
 	
 <!----------------------Templates-------------------------------------------------------->
-
+<div class="hide">
 <template id="farm-template">
 <tr>
 <td>
@@ -43,7 +43,7 @@
 {{chickenList.length}}
 </td>
 <td>
-<a href="<%=request.getContextPath()%>/info/{{id}}"><button class="info btn btn-default">Info</button></a>
+<a class="info btn btn-default" href="<%=request.getContextPath()%>/info/{{id}}">Info</a>
 </td>
 <td>
 <button class="deleteFarm btn btn-default" id='{{id}}'>Delete</button>
@@ -57,11 +57,13 @@
 </td>
 </tr>
 </template>
-
+</div>
 <!----------------------Jquery & AJAX-------------------------------------------------------->
-	<script
+	<!-- <script
 	src="https://ajax.googleapis.com/ajax/
-libs/jquery/3.1.1/jquery.min.js"></script>
+libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/mustache.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
 </body>
