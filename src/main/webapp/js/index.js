@@ -11,7 +11,7 @@ $(function() {
 	
 	//GET farm list
 	
-	$.ajax({
+	/*$.ajax({
 		type : 'GET',
 		url : '/ChickenTest/view/farmList',
 		success : function(farms) {
@@ -21,6 +21,27 @@ $(function() {
 		},
 		error : function() {
 			alert('Error loading farms')
+		}
+	});*/
+	
+	$.ajax({
+		type : 'GET',
+		url : '/ChickenTest/view/farmList',
+		success : function(farms) {
+			if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
+			{
+				$.each(farms,function(i,farm){
+					$farms.append('<tr><td><span class="name">'+ farm.nameF +'</span><input class="name hide"></td><td>'+farm.chickenList.length+'</td><td><a class="info btn btn-default" href="/ChickenTest/info/'+farm.id+'">Info</a></td><td><button class="deleteFarm btn btn-default" id="'+ farm.id+'">Delete</button></td><td class="td1"><button class="editFarm btn btn-default">Edit</button></td><td class="td2 hide"><button class="saveFarm btn btn-default" id="'+farm.id+'">Save</button><button class="cancelEdit btn btn-default">Cancel</button></td></tr>');
+				});
+			}else{
+				$.each(farms,function(i,farm){
+					listFarm(farm);		
+					});
+			}
+			
+		},
+		error:function(){
+			alert('Error');
 		}
 	});
 	
@@ -52,7 +73,7 @@ $(function() {
 				nameF : $nameF.val()
 		}
 		
-		$.ajax({
+		/*$.ajax({
 			type: 'POST',
 			url: '/ChickenTest/view/addFarm',
 			data: farm,
@@ -62,7 +83,25 @@ $(function() {
 			error: function(){
 				alert('Error');
 			}
+		});*/
+		
+		$.ajax({
+			type:'POST',
+			url:'/ChickenTest/view/addFarm',
+			data: farm,
+			success : function(newfarm) {
+				if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
+				{
+					$farms.append('<tr><td><span class="name">'+ newfarm.nameF +'</span><input class="name hide"></td><td>'+newfarm.chickenList.length+'</td><td><a href="/ChickenTest/info/'+newfarm.id+'" class="info btn btn-default">Info</a></td><td><button class="deleteFarm btn btn-default" id="'+ newfarm.id+'">Delete</button></td><td class="td1"><button class="editFarm btn btn-default">Edit</button></td><td class="td2 hide"><button class="saveFarm btn btn-default" id="'+newfarm.id+'">Save</button><button class="cancelEdit btn btn-default">Cancel</button></td></tr>');
+				}else{
+					listFarm(newfarm);
+				}	
+			},
+			error:function(){
+				alert('Error');
+			}
 		});
+		
 		$('#showAdd').removeClass('hide');
 		$('#showForm').addClass('hide');
 		$('button.deleteFarm').removeAttr('disabled','disabled');

@@ -6,6 +6,8 @@ $(function(){
 	
 	var $nameC = $('#nameC');
 	
+	var $chickenTemplate = $('#chicken-template');
+	
 	var chickenTemplate = $('#chicken-template').html();
 	
 	function listChicken(chicken){
@@ -14,7 +16,7 @@ $(function(){
 	
 	//GET
 	
-	$.ajax({
+	/*$.ajax({
 		type: 'GET',
 		url:'/ChickenTest/view/getFarm/'+ farmId,
 		success: function(chickens){
@@ -25,11 +27,33 @@ $(function(){
 		error: function(){
 			alert('error');
 		}
+	});*/
+	
+	$.ajax({
+		type:'GET',
+		url:'/ChickenTest/view/getFarm/'+ farmId,
+		success: function (chickens){
+			if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
+				{
+					$.each(chickens,function(i,chicken){
+						$chickens.append('<tr class="canBeRemove"><td>'+chicken.id+'</td><td><span class="chickEggs">'+chicken.eggs+'</span><input class="chickEggs hide"></td><td><button class="addEgg btn btn-default " data-id="'+chicken.id+'" data-eggs="'+chicken.eggs+'">Add</button></td><td><button class="delete btn btn-default" id="'+chicken.id+'">Delete</button></td><td class="td1"><button class="editEgg btn btn-default">Edit</button></td><td class="td2 hide"><button class="saveEgg btn btn-default" data-id="'+chicken.id+'">Save</button><button class="cancelEdit btn btn-default">Cancel</button></td></tr>');
+					});
+				}
+			else
+				{
+				$.each(chickens,function(i,chicken){
+					listChicken(chicken);
+					});
+				}
+		},
+		error: function(){
+			alert('Error');
+		}
 	});
 	
 	//POST
 	
-	$('#addChicken').on('click',function(){
+	/*$('#addChicken').on('click',function(){
 		var chicken = {}
 		
 		$.ajax({
@@ -44,6 +68,29 @@ $(function(){
 			}
 		});
 		
+	});*/
+	
+	$('#addChicken').on('click',function(){
+		var chicken = {}
+		
+		$.ajax({
+			type:'POST',
+			url: '/ChickenTest/view/addChicken/'+ farmId,
+			data: chicken,
+			success:function(newChicken){
+				if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/)))
+					{
+					$chickens.append('<tr class="canBeRemove"><td>'+newChicken.id+'</td><td><span class="chickEggs">'+newChicken.eggs+'</span><input class="chickEggs hide"></td><td><button class="addEgg btn btn-default " data-id="'+newChicken.id+'" data-eggs="'+newChicken.eggs+'">Add</button></td><td><button class="delete btn btn-default" id="'+newChicken.id+'">Delete</button></td><td class="td1"><button class="editEgg btn btn-default">Edit</button></td><td class="td2 hide"><button class="saveEgg btn btn-default" data-id="'+newChicken.id+'">Save</button><button class="cancelEdit btn btn-default">Cancel</button></td></tr>');
+					}
+				else
+					{
+					listChicken(newChicken);
+					}
+			},
+			error: function(){
+				alert('Error');
+			}
+		});
 	});
 	
 	//DELETE

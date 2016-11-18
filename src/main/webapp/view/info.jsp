@@ -8,6 +8,7 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/js/Style.css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -30,10 +31,11 @@
 
 	</div>
 
+	<div class="hide">
 	<template id="chicken-template">
 	<tr class="canBeRemove">
 		<td>{{id}}</td>
-		<td >
+		<td>
 		<span class="chickEggs">{{eggs}}</span>
 		<input class="chickEggs hide">
 		</td>
@@ -49,10 +51,13 @@
 		</td>
 	</tr>
 	</template>
+	</div>
 	<!----------------------Jquery & AJAX-------------------------------------------------------->
-	<script
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script
 		src="https://ajax.googleapis.com/ajax/
-libs/jquery/3.1.1/jquery.min.js"></script>
+libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/js/mustache.min.js"></script>
 	<script type="text/javascript"
