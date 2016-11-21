@@ -16,9 +16,10 @@
 <h2><spring:message code="test.farm"></spring:message></h2>
 <button id="showAdd" class="btn btn-default"><spring:message code="test.newFarm"></spring:message></button>
 		<div id="showForm" class="hide">
-		<label><spring:message code="test.farmName"></spring:message></label><input class="form-control" id="nameF">
+			<label><spring:message code="test.farmName"></spring:message></label><input class="form-control" id="nameF">
 			<button id="addFarm" class="btn btn-default"><spring:message code="test.addFarm"></spring:message></button>
 			<button id="cancel" class="btn btn-default"><spring:message code="test.cancelFarm"></spring:message></button>
+			<span class="empty hide"><spring:message code="test.empty"></spring:message></span>
 		</div>
 		<br><br>
 		<table id="farms" class="table table-striped">
@@ -41,6 +42,7 @@
 <td>
 <span class="name">{{nameF}}</span>
 <input class="name hide">
+<span class="empty hide"><spring:message code="test.empty"></spring:message></span>
 </td>
 <td>
 {{chickenList.length}}
