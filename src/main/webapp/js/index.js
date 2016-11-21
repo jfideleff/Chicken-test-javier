@@ -11,7 +11,7 @@ $(function() {
 	
 	//GET farm list
 	
-	/*$.ajax({
+	$.ajax({
 		type : 'GET',
 		url : '/ChickenTest/farmList',
 		success : function(farms) {
@@ -22,9 +22,9 @@ $(function() {
 		error : function() {
 			alert('Error loading farms');
 		}
-	});*/
+	});
 	
-	$.ajax({
+	/*$.ajax({
 		type : 'GET',
 		url : '/ChickenTest/farmList',
 		success : function(farms) {
@@ -43,7 +43,7 @@ $(function() {
 		error:function(){
 			alert('Error');
 		}
-	});
+	});*/
 	
 	//Add farm display buttons
 	
@@ -73,9 +73,9 @@ $(function() {
 				nameF : $nameF.val()
 		}
 		
-		/*$.ajax({
+		$.ajax({
 			type: 'POST',
-			url: '/ChickenTest/view/addFarm',
+			url: '/ChickenTest/addFarm',
 			data: farm,
 			success: function(newFarm){
 				listFarm(newFarm);
@@ -83,9 +83,9 @@ $(function() {
 			error: function(){
 				alert('Error');
 			}
-		});*/
+		});
 		
-		$.ajax({
+		/*$.ajax({
 			type:'POST',
 			url:'/ChickenTest/addFarm',
 			data: farm,
@@ -100,7 +100,7 @@ $(function() {
 			error:function(){
 				alert('Error');
 			}
-		});
+		});*/
 		
 		$('#showAdd').removeClass('hide');
 		$('#showForm').addClass('hide');

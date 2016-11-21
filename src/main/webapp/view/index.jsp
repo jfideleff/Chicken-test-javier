@@ -35,7 +35,8 @@
 	
 <!----------------------Templates-------------------------------------------------------->
 <div class="hide">
-<template id="farm-template">
+<script type="text/x-mustache-tmpl" id="farm-template">
+<tbody>
 <tr>
 <td>
 <span class="name">{{nameF}}</span>
@@ -58,7 +59,8 @@
 <button class="cancelEdit btn btn-default"><spring:message code="test.cancelFarm"></spring:message></button>
 </td>
 </tr>
-</template>
+</tbody>
+</script>
 </div>
 <!----------------------Jquery & AJAX-------------------------------------------------------->
 	<!-- <script

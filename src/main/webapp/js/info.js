@@ -16,9 +16,9 @@ $(function(){
 	
 	//GET
 	
-	/*$.ajax({
+	$.ajax({
 		type: 'GET',
-		url:'/ChickenTest/view/getFarm/'+ farmId,
+		url:'/ChickenTest/getFarm/'+ farmId,
 		success: function(chickens){
 			$.each(chickens,function(i,chicken){
 				listChicken(chicken);
@@ -27,9 +27,9 @@ $(function(){
 		error: function(){
 			alert('error');
 		}
-	});*/
+	});
 	
-	$.ajax({
+	/*$.ajax({
 		type:'GET',
 		url:'/ChickenTest/getFarm/'+ farmId,
 		success: function (chickens){
@@ -49,16 +49,16 @@ $(function(){
 		error: function(){
 			alert('Error');
 		}
-	});
+	});*/
 	
 	//POST
 	
-	/*$('#addChicken').on('click',function(){
+	$('#addChicken').on('click',function(){
 		var chicken = {}
 		
 		$.ajax({
 			type: 'POST',
-			url: '/ChickenTest/view/addChicken/'+ farmId,
+			url: '/ChickenTest/addChicken/'+ farmId,
 			data: chicken,
 			success: function(newChicken){
 				listChicken(newChicken);
@@ -68,9 +68,9 @@ $(function(){
 			}
 		});
 		
-	});*/
+	});
 	
-	$('#addChicken').on('click',function(){
+	/*$('#addChicken').on('click',function(){
 		var chicken = {}
 		
 		$.ajax({
@@ -91,7 +91,7 @@ $(function(){
 				alert('Error');
 			}
 		});
-	});
+	});*/
 	
 	//DELETE
 	
