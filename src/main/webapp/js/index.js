@@ -13,14 +13,14 @@ $(function() {
 	
 	/*$.ajax({
 		type : 'GET',
-		url : '/ChickenTest/view/farmList',
+		url : '/ChickenTest/farmList',
 		success : function(farms) {
 			$.each(farms,function(i,farm){
 				listFarm(farm);		
 				});
 		},
 		error : function() {
-			alert('Error loading farms')
+			alert('Error loading farms');
 		}
 	});*/
 	
