@@ -161,6 +161,7 @@ $(function(){
 		$('button.delete').removeAttr('disabled','disabled');
 		$('#addChicken').removeAttr('disabled','disabled');
 		$('.editEgg').removeAttr('disabled','disabled');
+		$('span.empty').addClass('hide');
 	});
 	
 	$chickens.delegate('.saveEgg','click',function(){
@@ -187,12 +188,11 @@ $(function(){
 				$('button.delete').removeAttr('disabled','disabled');
 				$('#addChicken').removeAttr('disabled','disabled');
 				$('.editEgg').removeAttr('disabled','disabled');
+				$('span.empty2').addClass('hide');
 			},
 			error: function(){
-				alert('Error');
+				$tr.find('span.empty').removeClass('hide');
 			}
 		});
-		
-		
 	});
 });

@@ -37,6 +37,7 @@
 		<td>
 		<span class="chickEggs">{{eggs}}</span>
 		<input class="chickEggs hide">
+		<span class="empty hide"><spring:message code="test.empty2"></spring:message></span>	
 		</td>
 		<td><button class="addEgg btn btn-default " data-id='{{id}}'
 				data-eggs='{{eggs}}'><spring:message code="test.chickenAddEgg"></spring:message></button></td>
