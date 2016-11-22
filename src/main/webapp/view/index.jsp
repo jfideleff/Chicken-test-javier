@@ -11,7 +11,7 @@
 <title><spring:message code="test.farmTittle"></spring:message></title>
 </head>
 <body>
-<a href="<%=request.getContextPath()%>/?lenguage=en">Eng</a> | <a href="<%=request.getContextPath()%>/?lenguage=es">Spa</a>
+<a href="<%=request.getContextPath()%>/?lenguage=en">Eng</a> | <a href="<%=request.getContextPath()%>/?lenguage=es">Spa</a> | <a href="<%=request.getContextPath()%>/?lenguage=pt">Ptr</a>
 <div class="container">
 <h2><spring:message code="test.farm"></spring:message></h2>
 <button id="showAdd" class="btn btn-default"><spring:message code="test.newFarm"></spring:message></button>
