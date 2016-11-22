@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/js/Style.css" />
@@ -12,6 +14,7 @@
 </head>
 <body>
 <a class="btn btn-default" href="<%=request.getContextPath()%>/?lenguage=en">Eng</a> | <a class="btn btn-default" href="<%=request.getContextPath()%>/?lenguage=es">Spa</a> | <a class="btn btn-default" href="<%=request.getContextPath()%>/?lenguage=pt">Ptr</a>
+<a class="btn btn-default pull-right" href="<%=request.getContextPath()%>/logout"><spring:message code="test.logout"></spring:message></a>
 <div class="container">
 <h2><spring:message code="test.farm"></spring:message></h2>
 <button id="showAdd" class="btn btn-default"><spring:message code="test.newFarm"></spring:message></button>

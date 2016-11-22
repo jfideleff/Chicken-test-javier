@@ -24,10 +24,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 					.password("user")
 					.roles("USER");
 	}
-	
-	/*@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-		.csrf().disable();
-	}*/
 }
