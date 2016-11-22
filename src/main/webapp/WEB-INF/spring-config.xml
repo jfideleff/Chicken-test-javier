@@ -95,5 +95,5 @@
 	<bean id="FarmDao" class="com.accenture.dao.FarmDao" />
 	<bean id="ChickenDao" class="com.accenture.dao.ChickenDao" />
 	
-	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy"></bean>	
-</beans>  
+	<bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy"></bean>
+	</beans>  

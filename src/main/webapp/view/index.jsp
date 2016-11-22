@@ -12,7 +12,6 @@
 </head>
 <body>
 <a class="btn btn-default" href="<%=request.getContextPath()%>/?lenguage=en">Eng</a> | <a class="btn btn-default" href="<%=request.getContextPath()%>/?lenguage=es">Spa</a> | <a class="btn btn-default" href="<%=request.getContextPath()%>/?lenguage=pt">Ptr</a>
-<a class="btn btn-default pull-right" href="<%=request.getContextPath()%>/logout"><spring:message code="test.logout"></spring:message></a>
 <div class="container">
 <h2><spring:message code="test.farm"></spring:message></h2>
 <button id="showAdd" class="btn btn-default"><spring:message code="test.newFarm"></spring:message></button>
@@ -52,7 +51,7 @@
 <a class="info btn btn-default" href="<%=request.getContextPath()%>/info/{{id}}"><spring:message code="test.farmInfo"></spring:message></a>
 </td>
 <td>
-<button class="deleteFarm btn btn-default" id='{{id}}'><spring:message code="test.farmDelete"></spring:message></button>
+<button name="${_csrf.parameterName}" value="${_csrf.token}" class="deleteFarm btn btn-default" id='{{id}}'><spring:message code="test.farmDelete"></spring:message></button>
 </td>
 <td class="td1">
 <button class="editFarm btn btn-default"><spring:message code="test.farmEdit"></spring:message></button>
