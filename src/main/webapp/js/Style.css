@@ -9,3 +9,7 @@
 td{
 	height: 37px;
 }
+.container-fluid{
+	width:300px;
+	text-align: center;
+}
